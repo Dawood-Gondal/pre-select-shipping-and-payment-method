@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_PreSelectShippingAndPaymentMethod
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="commerce_enterprise" translate="label" sortOrder="200">
+            <label>Commerce Enterprise</label>
+        </tab>
+        <section id="preSelectShippingPayment" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Pre-Select Shipping &amp; Payment Methods</label>
+            <tab>commerce_enterprise</tab>
+            <resource>M2Commerce_PreSelectShippingAndPaymentMethod::preSelectShippingPaymentConfig</resource>
+            <group id="shipping" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pre Select Shipping Method</label>
+                <field id="enable" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Select Shipping Method</label>
+                    <source_model>M2Commerce\PreSelectShippingAndPaymentMethod\Model\Config\Source\ShippingMethods</source_model>
+                    <comment>Shipping method is automatically selected if existed.</comment>
+                </field>
+            </group>
+            <group id="payment" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pre Select Payment Method</label>
+                <field id="enable" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto Select Payment Method</label>
+                    <source_model>M2Commerce\PreSelectShippingAndPaymentMethod\Model\Config\Source\PaymentMethods</source_model>
+                    <comment>Payment  method is automatically selected if existed.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
